@@ -10,7 +10,9 @@ module.exports = async (app) => {
     app.use(express.urlencoded({ extended: true, limit: '2mb'}));
     app.use(cors());
     app.use(express.static(__dirname + '/public'))
-
+    app.get('/', (req, res) => {
+        res.sendFile(__dirname + '/public/index.html');
+    });
     //api
     // customer(app);
     // products(app);
